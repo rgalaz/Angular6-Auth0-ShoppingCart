@@ -1,0 +1,133 @@
+<!-- !PAGE CONTENT! -->
+<div class="w3-main w3-content w3-padding" style="max-width:1200px;margin-top:100px">
+  <!-- First Photo Grid-->
+  <div class="content">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="accordion" id="accordionExample">
+            <div class="card">
+              <div class="card-header" id="headingTwo">
+                <h2 class="mb-2">
+                  <button class=" text-left btn btn-lg btn-block btn-default collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    <i class="icon ion-md-cart"> Lista de productos <span class="badge badge-dark badge-pill">{{cont}}</span></i>
+                    <strong class=" pull-right"><i class="icon ion-md-card"> Total: <span class="badge badge-warning badge-pill">${{total}}</span> CLP</i></strong>
+                  </button>
+                </h2>
+              </div>
+              <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                <div class="card-body">
+                    <table class="table">
+                        <div class="col-md-12 carrito">
+                            <h4 class="text-center"><i class="icon ion-md-cart"> Carrito de compras</i></h4>
+                            <ul class="">
+                              <li class="list-group-item" *ngFor="let pedido of pedidos">
+                                  <span class="badge badge-danger badge-pill pull-left">0</span>&nbsp;
+                                  {{ pedido.nombre }}
+                                <strong class="pull-right"><span class="badge badge-primary badge-pill">${{pedido.costo}}</span></strong>
+                              </li>
+                              <br>
+                              <h3 class="text-center"><strong><i class="icon ion-md-card"> Total: <span class="badge badge-warning badge-pill text-center">${{total}}</span></i></strong></h3>
+                            </ul>
+                          </div>
+                    </table>
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div><br>
+  <div class="content">
+      <div class="row">
+        <div class="col-sm-3">
+            <div class="card" style="width: 18rem;">
+                <img src="../../assets/hitaliana.jpg" class="card-img-top" alt="">
+                <div class="card-body">
+                  <h5 class="card-title text-center">{{ objeto.producto1.nombre }}</h5>
+                  <p class="card-text text-center">{{ objeto.producto1.descripcion }}</p>
+                  <h3 class="text-center">${{ objeto.producto1.valor }}</h3>
+                 <div class="text-center">
+                        <button class="buttonVerde button" (click)="agregarHamburguesa()" ><i class="fa fa-plus"></i></button>
+                        <button class="buttonRojo button" (click)="eliminarHamburguesa()"><i class="fa fa-minus"></i></button>
+                 </div>
+                </div>
+              </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="card" style="width: 18rem;">
+                <img src="../../assets/empanada.jpg"  class="card-img-top" alt="">
+                <div class="card-body">
+                  <h5 class="card-title text-center">{{ objeto.producto2.nombre }}</h5>
+                  <p class="card-text text-center">{{ objeto.producto2.descripcion }}</p>
+                  <h3 class="text-center">${{ objeto.producto2.valor }}</h3>
+                 <div class="text-center">
+                        <button class="buttonVerde button" (click)="agregarEmpanada()" ><i class="fa fa-plus"></i></button>
+                        <button class="buttonRojo button" (click)="eliminarEmpanada()"><i class="fa fa-minus"></i></button>
+                 </div>
+                </div>
+              </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="card" style="width: 18rem;">
+                <img src="../../assets/humita2.jpg"  class="card-img-top" alt="">
+                <div class="card-body">
+                  <h5 class="card-title text-center">{{ objeto.producto3.nombre }}</h5>
+                  <p class="card-text text-center">{{ objeto.producto3.descripcion }}</p>
+                  <h3 class="text-center">${{ objeto.producto3.valor }}</h3>
+                 <div class="text-center">
+                        <button class="buttonVerde button" (click)="agregarHumita()" ><i class="fa fa-plus"></i></button>
+                        <button class="buttonRojo button" (click)="eliminarHumita()"><i class="fa fa-minus"></i></button>
+                 </div>
+                </div>
+              </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="card" style="width: 18rem;">
+                <img src="../../assets/pchoclo.jpg"  class="card-img-top" alt="">
+                <div class="card-body">
+                  <h5 class="card-title text-center">{{ objeto.producto4.nombre }}</h5>
+                  <p class="card-text text-center">{{ objeto.producto4.descripcion }}</p>
+                  <h3 class="text-center">${{ objeto.producto4.valor }}</h3>
+                 <div class="text-center">
+                        <button class="buttonVerde button" (click)="agregarPc()" ><i class="fa fa-plus"></i></button>
+                        <button class="buttonRojo button" (click)="eliminarPc()"><i class="fa fa-minus"></i></button>
+                 </div>
+                </div>
+              </div>
+        </div>
+      </div>
+  </div><br>
+  <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <h5>Información de Pedido:</h5>
+              <form href="../realizar-pedido/realizar-pedido.component.html">
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Dirección</label>
+                  <input type="text" class="form-control" name="adress" aria-describedby="emailHelp" placeholder="Ingresa Dirección"
+                    required>
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputPassword1">Observación</label>
+                  <textarea class="form-control" rows="5" id="comment" required></textarea>
+                  <small id="emailHelp" class="form-text text-muted">* Ingresa una observación para el pedido.</small>
+                </div>
+              </form>
+              <button type="button" class="buttonVerde button"><a routerLink="/pedido-finalizado">Finalizar Pedido</a></button>
+                <a routerLink="/pedido-finalizado"><button class="buttonVerde button">Finalizar Pedido</button></a>
+        </div>
+        <div class="col-md-2"></div>
+        <div class="col-md-4 carrito">
+              <h4 class="text-center"><i class="icon ion-md-cart"> Carrito de compras</i></h4>
+              <ul class="">
+                <li class="list-group-item text-left" *ngFor="let pedido of pedidos">
+                    {{ pedido.nombre }}
+                  <strong class="pull-right"><span class="badge badge-primary badge-pill">${{pedido.costo}}</span></strong>
+                </li>
+                <br>
+                <h3 class="text-center"><strong><i class="icon ion-md-card"> Total: <span class="badge badge-warning badge-pill text-center">${{total}}</span></i></strong></h3>
+              </ul>
+            </div>
+        </div>
+  </div>
+</div>

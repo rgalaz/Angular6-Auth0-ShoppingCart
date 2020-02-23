@@ -1,0 +1,28 @@
+<!-- Navbar -->
+<div class="w3-top">
+    <div class="w3-bar w3-white w3-card" style="letter-spacing:4px;">
+      <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right" href="javascript:void(0)"
+        onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+      <a routerLink="/"  class="w3-bar-item w3-button w3-padding-large">COMIDA CHILENA </a>     
+      <a *ngIf="auth.isAuthenticated()" class="w3-bar-item w3-button w3-padding-large w3-hide-small w3-right" (click)="auth.logout()"><i class="fa fa-user"></i> Cerrar sesion</a>
+      <a routerLink="/realizar-pedido" *ngIf="auth.isAuthenticated()" class="w3-bar-item w3-button w3-padding-large w3-hide-small w3-right"> Realiza un pedido</a>
+      <a *ngIf="!auth.isAuthenticated()" class="w3-bar-item w3-button w3-padding-large w3-hide-small w3-right" (click)="auth.login()"><i class="fa fa-user"></i> Iniciar Sesion</a>
+      
+
+    </div>
+  </div>
+  
+  <!-- Navbar on small screens (remove the onclick attribute if you want the navbar to always show on top of the content when clicking on the links) -->
+  <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium w3-top" style="margin-top:46px">
+    <a href="#about" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">Nosotros</a>
+    <a href="#menu" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">Menu</a>
+    <a href="#contact" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">Contacto</a>
+    <a routerLink="/realizar-pedido" *ngIf="auth.isAuthenticated()" class="w3-bar-item w3-button w3-padding-large" >Realiza un pedido</a>
+    <a *ngIf="!auth.isAuthenticated()" class="w3-bar-item w3-button w3-padding-large" (click)="auth.login()"><i class="fa fa-user"></i> Iniciar Sesion</a>
+    <a *ngIf="auth.isAuthenticated()" class="w3-bar-item w3-button w3-padding-large" (click)="auth.logout()"><i class="fa fa-user"></i> Cerrar sesion</a>
+
+  </div>
+
+<main class="container">
+    <router-outlet></router-outlet>
+</main>

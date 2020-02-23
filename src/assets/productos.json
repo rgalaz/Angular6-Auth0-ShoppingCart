@@ -1,0 +1,26 @@
+{
+    "producto1":{
+       "id": "0001",
+       "nombre":"Hamburgesa",
+       "descripcion": "Hamburgesa Italiana",
+       "valor": 1600
+       },
+    "producto2":{
+       "id": "0002",
+       "nombre":"Empanada",
+       "descripcion": "Empanada de Carne",
+       "valor": 1000
+        },
+    "producto3":{
+       "id": "0003",
+       "nombre":"Humita",
+       "descripcion": "Comida tradicional Chilena",
+       "valor": 1000
+       },
+    "producto4":{
+        "id": "0004",
+        "nombre":"Pastel de Choclo",
+        "descripcion": "Comida tradicional Chilena",
+        "valor": 2000
+        }
+}
